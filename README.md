@@ -65,3 +65,11 @@ sources in the page's own footnotes. The product illustrations are hand-drawn ve
 Sony imagery.
 
 For that reason the page is not published to a shared URL.
+
+## Screenshots
+
+![Desktop — hero](screenshots/desktop.png)
+
+![Desktop — scrolled](screenshots/desktop-2.png)
+
+<img src="screenshots/mobile.png" alt="Mobile" width="320">

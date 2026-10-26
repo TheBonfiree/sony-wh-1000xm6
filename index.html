@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WH-1000XM6 — Sony</title>
+<meta name="description" content="Sony WH-1000XM6 wireless noise-cancelling headphones. HD Noise Cancelling Processor QN3, twelve microphones, 30 mm carbon fibre composite driver. Independent design exercise.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@10..48,75..100,300..800&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/page.css">
+</head>
+<body>
+
+<a class="skip-link t-17" href="#main">Skip to content</a>
+
+<!-- ==========================================================================
+     Sticky local nav. 52px. One conversion goal, three placements: here, the
+     specification sheet, the footer. No second competing ask anywhere.
+     ========================================================================== -->
+<header class="localnav" id="localnav">
+  <div class="localnav-inner">
+    <span class="localnav-product t-19">WH-1000XM6</span>
+    <nav class="localnav-links" aria-label="On this page">
+      <a class="t-14" href="#noise">Noise cancelling</a>
+      <a class="t-14" href="#proof">Proof</a>
+      <a class="t-14" href="#surface">Surface</a>
+      <a class="t-14" href="#specs">Specifications</a>
+    </nav>
+    <a class="cta cta-sm t-19" href="#specs">Buy <span class="cta-price">$449.99</span></a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ==========================================================================
+     (01) Hero — scrubbed product assembly.
+     The <h1> is the 24px eyebrow; the 80px claim is a <p>. That is PRECISION's
+     one sanctioned outline inversion: the claim is a headline visually and a
+     slogan semantically. The outline above it is still complete.
+     ========================================================================== -->
+<section class="chapter chapter-b rhythm-hero" id="overview"
+         data-anim-scroll-group="Hero — product assembly">
+  <div class="prose">
+    <div class="col-10">
+      <p class="section-index t-14" aria-hidden="true">(01)</p>
+      <h1 class="t-24 hero-eyebrow">WH-1000XM6</h1>
+      <p class="t-80 hero-claim">The best noise cancellation.<sup class="footnote"><a href="#footnote-1" aria-label="Footnote 1">1</a></sup></p>
+    </div>
+  </div>
+
+  <div class="media hero-stage"
+       data-keyframe='{"start": "t - 60vh", "end": "b - 20vh"}'
+       data-scene="hero">
+    <!-- The ground. A CSS wash until field.js decides WebGL is available and
+         wanted; the canvas is inserted into this element and the wash drops. -->
+    <div class="field-wrap" id="field-wrap" aria-hidden="true"></div>
+
+    <svg class="hero-svg" viewBox="0 0 1200 760" role="img"
+         aria-labelledby="hero-svg-title hero-svg-desc" focusable="false">
+      <title id="hero-svg-title">Sony WH-1000XM6 headphones, exploded diagram</title>
+      <desc id="hero-svg-desc">A front view of the over-ear headphones. The right earcup is separated
+        into its ear pad, baffle ring and 30 millimetre driver, which converge into the assembled
+        earcup as the page scrolls.</desc>
+
+      <defs>
+        <linearGradient id="shellGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#34343a"/>
+          <stop offset="0.55" stop-color="#18181c"/>
+          <stop offset="1" stop-color="#08080a"/>
+        </linearGradient>
+        <linearGradient id="bandGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#141418"/>
+          <stop offset="0.5" stop-color="#3a3a41"/>
+          <stop offset="1" stop-color="#141418"/>
+        </linearGradient>
+        <!-- The one ramp. Same stops as --g-proof, so the driver and the proof
+             bars read as one system rather than two decorations. -->
+        <linearGradient id="driverRamp" x1="0" y1="0" x2="1" y2="0.35">
+          <stop offset="0" stop-color="#f6d9bd"/>
+          <stop offset="0.30" stop-color="#d98a5a"/>
+          <stop offset="0.62" stop-color="#8f6bd8"/>
+          <stop offset="1" stop-color="#6e8cff"/>
+        </linearGradient>
+        <radialGradient id="sheen" cx="0.34" cy="0.24" r="0.72">
+          <stop offset="0" stop-color="#ffffff" stop-opacity="0.20"/>
+          <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <g id="hero-rig">
+        <!-- Headband: outer shell, then the inner cushion sitting under it. -->
+        <path id="hero-band" d="M 330 306 C 330 182 432 120 600 120 C 768 120 870 182 870 306"
+              fill="none" stroke="url(#bandGrad)" stroke-width="27" stroke-linecap="round"/>
+        <path d="M 344 312 C 346 208 442 152 600 152 C 758 152 854 208 856 312"
+              fill="none" stroke="#0d0d10" stroke-width="13" stroke-linecap="round" opacity="0.85"/>
+
+        <!-- Sliders and yokes. -->
+        <rect x="316" y="286" width="28" height="72" rx="14" fill="#26262b"/>
+        <rect x="856" y="286" width="28" height="72" rx="14" fill="#26262b"/>
+        <path d="M 330 348 L 330 372" stroke="#3a3a41" stroke-width="16" stroke-linecap="round"/>
+        <path d="M 870 348 L 870 372" stroke="#3a3a41" stroke-width="16" stroke-linecap="round"/>
+
+        <!-- Left earcup, assembled. -->
+        <g id="hero-cup-left">
+          <ellipse cx="330" cy="474" rx="118" ry="158" fill="url(#shellGrad)"/>
+          <ellipse cx="330" cy="474" rx="118" ry="158" fill="url(#sheen)"/>
+          <ellipse cx="330" cy="480" rx="93" ry="130" fill="none" stroke="#0a0a0c" stroke-width="20"/>
+          <ellipse cx="330" cy="480" rx="72" ry="106" fill="#050506"/>
+        </g>
+
+        <!-- Right earcup: the shell stays; pad, baffle and driver fly out and
+             converge. Offsets are written by js/scenes.js each frame. -->
+        <g id="hero-cup-right">
+          <ellipse cx="870" cy="474" rx="118" ry="158" fill="url(#shellGrad)"/>
+          <ellipse cx="870" cy="474" rx="118" ry="158" fill="url(#sheen)"/>
+          <!-- Touch surface, barely there. -->
+          <ellipse cx="870" cy="474" rx="82" ry="112" fill="none" stroke="#26262b" stroke-width="1.5"/>
+        </g>
+
+        <g id="hero-layer-baffle" class="hero-layer">
+          <ellipse cx="870" cy="480" rx="93" ry="130" fill="none" stroke="#3a3a41" stroke-width="9"/>
+          <ellipse cx="870" cy="480" rx="76" ry="110" fill="none" stroke="#232328" stroke-width="3"/>
+        </g>
+
+        <g id="hero-layer-driver" class="hero-layer">
+          <circle cx="870" cy="480" r="64" fill="url(#driverRamp)"/>
+          <circle cx="870" cy="480" r="64" fill="url(#sheen)"/>
+          <circle cx="870" cy="480" r="26" fill="#0d0d10" opacity="0.55"/>
+        </g>
+
+        <g id="hero-layer-pad" class="hero-layer">
+          <ellipse cx="870" cy="480" rx="106" ry="144" fill="none" stroke="#131317" stroke-width="24"/>
+          <ellipse cx="870" cy="480" rx="106" ry="144" fill="none" stroke="#2c2c33" stroke-width="1"/>
+        </g>
+
+        <!-- Diagram annotations. Fade out as the cup assembles. -->
+        <g id="hero-annotations" aria-hidden="true">
+          <text id="hero-note-pad" class="svg-note" x="870" y="672">Ear pad</text>
+          <text id="hero-note-baffle" class="svg-note" x="870" y="672">Baffle</text>
+          <text id="hero-note-driver" class="svg-note" x="870" y="672">30 mm driver</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="prose hero-foot">
+    <p class="col-10 t-19 muted">Black · Platinum Silver · Midnight Blue. Approx. 254&nbsp;g.<sup class="footnote"><a href="#footnote-7" aria-label="Footnote 7">7</a></sup></p>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     (02) Chapter headline, unaccompanied.
+     96px, alone in its chapter, carrying the page's single loud type moment.
+     No subhead, no image, no CTA. This is what a chapter break looks like here.
+     ========================================================================== -->
+<section class="chapter chapter-a rhythm-statement" id="noise">
+  <div class="prose">
+    <div class="col-10">
+      <p class="section-index t-14" aria-hidden="true">(02)</p>
+      <h2 class="t-96 statement">Seven times faster.<br>Twelve microphones.<sup class="footnote"><a href="#footnote-2" aria-label="Footnote 2">2</a></sup></h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     (03) Component touts — dark tiles on the near-white ground.
+     Exactly two genuinely named components, which is the archetype's own
+     threshold. Second column is bottom-anchored sticky so it cross-fades in
+     over the first.
+     ========================================================================== -->
+<section class="chapter chapter-b rhythm-touts">
+  <div class="prose">
+    <div class="col-10">
+      <p class="section-index t-14" aria-hidden="true">(03)</p>
+      <h2 class="t-56">Two components do most of the work.</h2>
+    </div>
+  </div>
+
+  <div class="media touts">
+    <article class="tout tout-a">
+      <div class="tout-body">
+        <p class="tout-kicker t-14">Processing</p>
+        <h3 class="t-48">HD Noise Cancelling<br>Processor QN3</h3>
+        <ul class="tout-list t-28">
+          <li>Seven times faster than the QN1<sup class="footnote"><a href="#footnote-2" aria-label="Footnote 2">2</a></sup></li>
+          <li>Twelve microphones, tuned in real time<sup class="footnote"><a href="#footnote-3" aria-label="Footnote 3">3</a></sup></li>
+          <li>Look-ahead noise shaper</li>
+        </ul>
+        <p class="t-17 tout-note">The QN3 re-reads the twelve microphones continuously and adjusts
+          cancellation against what it hears rather than against a stored profile. Its look-ahead
+          noise shaper runs during digital-to-analogue conversion, before the signal reaches the
+          driver.</p>
+      </div>
+      <span class="corner corner-tl" aria-hidden="true"></span>
+      <span class="corner corner-tr" aria-hidden="true"></span>
+    </article>
+
+    <article class="tout tout-b">
+      <div class="tout-body">
+        <p class="tout-kicker t-14">Transducer</p>
+        <h3 class="t-48">30 mm carbon fibre<br>composite driver</h3>
+        <ul class="tout-list t-28">
+          <li>High-rigidity carbon fibre composite dome</li>
+          <li>4&nbsp;Hz – 40,000&nbsp;Hz, wired<sup class="footnote"><a href="#footnote-4" aria-label="Footnote 4">4</a></sup></li>
+          <li>Purpose-built voice coil structure</li>
+        </ul>
+        <p class="t-17 tout-note">A stiffer dome moves as one piece for longer before it starts to
+          flex, which is what keeps the top of the range from smearing. One driver per earcup — the
+          ramp on the diagram above is this part.</p>
+      </div>
+      <span class="corner corner-tl" aria-hidden="true"></span>
+      <span class="corner corner-tr" aria-hidden="true"></span>
+    </article>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     (04) Proof module — bars and figures. The register's centrepiece.
+     Two bars per tab, not three: only two honest configurations exist per
+     claim, and the first bar in each pair is the named baseline at 1.0x.
+     ========================================================================== -->
+<section class="chapter chapter-a rhythm-proof" id="proof"
+         data-anim-scroll-group="Proof bars">
+  <div class="prose">
+    <div class="col-10">
+      <p class="section-index t-14" aria-hidden="true">(04)</p>
+      <h2 class="t-56">Measured against the WH-1000XM5.</h2>
+      <p class="t-28 lede">Every multiplier below states its baseline. Where Sony publishes a method,
+        the method is in the footnote.</p>
+    </div>
+  </div>
+
+  <div class="media proof" data-scene="bars"
+       data-keyframe='{"start": "t - 70vh", "end": "t - 10vh"}'>
+    <ul class="tablist t-32" role="tablist" aria-label="Benchmark">
+      <li role="presentation"><a role="tab" id="tab-processing" href="#panel-processing"
+          aria-controls="panel-processing" aria-selected="true" tabindex="0">Processing</a></li>
+      <li role="presentation" aria-hidden="true"><span class="tabsep" aria-hidden="true">/</span></li>
+      <li role="presentation"><a role="tab" id="tab-mics" href="#panel-mics"
+          aria-controls="panel-mics" aria-selected="false" tabindex="-1">Microphone array</a></li>
+      <li role="presentation" aria-hidden="true"><span class="tabsep" aria-hidden="true">/</span></li>
+      <li role="presentation"><a role="tab" id="tab-charge" href="#panel-charge"
+          aria-controls="panel-charge" aria-selected="false" tabindex="-1">Quick charge</a></li>
+    </ul>
+
+    <div class="panel" id="panel-processing" role="tabpanel" aria-labelledby="tab-processing">
+      <div class="bars-container">
+        <div class="bar-row">
+          <div class="bar-content-container">
+            <div class="bar-mask" data-bar-width="7.0">
+              <hr class="bar" aria-hidden="true">
+            </div>
+            <span class="bar-caption t-24">QN3&nbsp;— WH-1000XM6</span>
+          </div>
+          <figure class="badge">
+            <div class="badge-content">
+              <div class="badge-value-container">
+                <span class="badge-value">7.0</span><span class="badge-unit">x</span>
+              </div>
+              <figcaption class="badge-caption t-14">processing speed<sup class="footnote"><a href="#footnote-2" aria-label="Footnote 2">2</a></sup></figcaption>
+            </div>
+          </figure>
+        </div>
+        <div class="bar-row is-baseline">
+          <div class="bar-content-container">
+            <div class="bar-mask" data-bar-width="1.0">
+              <hr class="bar" aria-hidden="true">
+            </div>
+            <span class="bar-caption t-24">QN1&nbsp;— WH-1000XM5 (baseline)</span>
+          </div>
+          <figure class="badge">
+            <div class="badge-content">
+              <div class="badge-value-container">
+                <span class="badge-value">1.0</span><span class="badge-unit">x</span>
+              </div>
+              <figcaption class="badge-caption t-14">baseline</figcaption>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-mics" role="tabpanel" aria-labelledby="tab-mics" hidden>
+      <div class="bars-container">
+        <div class="bar-row">
+          <div class="bar-content-container">
+            <div class="bar-mask" data-bar-width="1.5">
+              <hr class="bar" aria-hidden="true">
+            </div>
+            <span class="bar-caption t-24">12 microphones&nbsp;— WH-1000XM6</span>
+          </div>
+          <figure class="badge">
+            <div class="badge-content">
+              <div class="badge-value-container">
+                <span class="badge-value">1.5</span><span class="badge-unit">x</span>
+              </div>
+              <figcaption class="badge-caption t-14">microphone count<sup class="footnote"><a href="#footnote-3" aria-label="Footnote 3">3</a></sup></figcaption>
+            </div>
+          </figure>
+        </div>
+        <div class="bar-row is-baseline">
+          <div class="bar-content-container">
+            <div class="bar-mask" data-bar-width="1.0">
+              <hr class="bar" aria-hidden="true">
+            </div>
+            <span class="bar-caption t-24">8 microphones&nbsp;— WH-1000XM5 (baseline)</span>
+          </div>
+          <figure class="badge">
+            <div class="badge-content">
+              <div class="badge-value-container">
+                <span class="badge-value">1.0</span><span class="badge-unit">x</span>
+              </div>
+              <figcaption class="badge-caption t-14">baseline</figcaption>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-charge" role="tabpanel" aria-labelledby="tab-charge" hidden>
+      <div class="bars-container">
+        <div class="bar-row">
+          <div class="bar-content-container">
+            <div class="bar-mask" data-bar-width="3.0">
+              <hr class="bar" aria-hidden="true">
+            </div>
+            <span class="bar-caption t-24">3 min charge, USB&nbsp;PD 9&nbsp;V / 2.3&nbsp;A</span>
+          </div>
+          <figure class="badge">
+            <div class="badge-content">
+              <div class="badge-value-container">
+                <span class="badge-value">3.0</span><span class="badge-unit">x</span>
+              </div>
+              <figcaption class="badge-caption t-14">playback returned<sup class="footnote"><a href="#footnote-6" aria-label="Footnote 6">6</a></sup></figcaption>
+            </div>
+          </figure>
+        </div>
+        <div class="bar-row is-baseline">
+          <div class="bar-content-container">
+            <div class="bar-mask" data-bar-width="1.0">
+              <hr class="bar" aria-hidden="true">
+            </div>
+            <span class="bar-caption t-24">3 min charge, 5&nbsp;V / 1.5&nbsp;A (baseline)</span>
+          </div>
+          <figure class="badge">
+            <div class="badge-content">
+              <div class="badge-value-container">
+                <span class="badge-value">1.0</span><span class="badge-unit">x</span>
+              </div>
+              <figcaption class="badge-caption t-14">baseline</figcaption>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     (05) Sticky spec stage. A viewport-height pinned stage with labelled
+     content advancing over it as scroll drives the scene.
+     ========================================================================== -->
+<section class="chapter chapter-b rhythm-stage" id="surface"
+         data-anim-scroll-group="Spec stage — the surface">
+  <div class="prose">
+    <div class="col-10">
+      <p class="section-index t-14" aria-hidden="true">(05)</p>
+      <h2 class="t-56">Across the surface.</h2>
+    </div>
+  </div>
+
+  <div class="stage-runway" data-keyframe='{"start": "t", "end": "b - 100vh"}' data-scene="stage">
+    <div class="stage">
+      <div class="stage-canvas">
+        <svg class="stage-svg" viewBox="296 16 608 768" role="img"
+             aria-labelledby="stage-svg-title stage-svg-desc" focusable="false">
+          <title id="stage-svg-title">The right earcup of the WH-1000XM6</title>
+          <desc id="stage-svg-desc">A close view of one earcup. The upper half is the touch control
+            surface; around its rim sit the microphone ports of the twelve-microphone array, six of
+            which form the beamforming array used for voice calls.</desc>
+          <defs>
+            <linearGradient id="shellGrad2" x1="0" y1="0" x2="0.2" y2="1">
+              <stop offset="0" stop-color="#34343a"/>
+              <stop offset="0.55" stop-color="#17171b"/>
+              <stop offset="1" stop-color="#08080a"/>
+            </linearGradient>
+            <radialGradient id="sheen2" cx="0.32" cy="0.2" r="0.75">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+              <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <g id="stage-camera">
+            <ellipse cx="600" cy="400" rx="250" ry="330" fill="url(#shellGrad2)"/>
+            <ellipse cx="600" cy="400" rx="250" ry="330" fill="url(#sheen2)"/>
+            <ellipse cx="600" cy="400" rx="250" ry="330" fill="none" stroke="#2e2e34" stroke-width="2"/>
+
+            <!-- Touch surface. -->
+            <g id="stage-touch">
+              <ellipse cx="600" cy="400" rx="176" ry="238" fill="none" stroke="#26262b" stroke-width="1.5"/>
+              <path d="M 600 250 L 600 550" stroke="#26262b" stroke-width="1.5" stroke-dasharray="3 9"/>
+              <path d="M 460 400 L 740 400" stroke="#26262b" stroke-width="1.5" stroke-dasharray="3 9"/>
+              <circle cx="600" cy="400" r="9" fill="#3a3a41"/>
+            </g>
+
+            <!-- Microphone ports: twelve, six of them the beamforming subset. -->
+            <g id="stage-mics">
+              <circle class="mic" cx="600" cy="108" r="9"/>
+              <circle class="mic mic-beam" cx="694" cy="132" r="9"/>
+              <circle class="mic mic-beam" cx="774" cy="196" r="9"/>
+              <circle class="mic" cx="828" cy="292" r="9"/>
+              <circle class="mic mic-beam" cx="846" cy="400" r="9"/>
+              <circle class="mic" cx="828" cy="508" r="9"/>
+              <circle class="mic mic-beam" cx="774" cy="604" r="9"/>
+              <circle class="mic" cx="694" cy="668" r="9"/>
+              <circle class="mic mic-beam" cx="600" cy="692" r="9"/>
+              <circle class="mic" cx="474" cy="640" r="9"/>
+              <circle class="mic mic-beam" cx="378" cy="512" r="9"/>
+              <circle class="mic" cx="356" cy="292" r="9"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="stage-copy prose">
+        <section class="stage-sub col-9" id="stage-sub-touch">
+          <h3 class="t-19">Control surface</h3>
+          <p class="t-17">The whole outer face of the right cup is the control. Swipe vertically for
+            volume, horizontally to skip, hold to switch between ambient sound and full cancellation.
+            Speak-to-Chat drops the volume and opens the microphones the moment you start talking.</p>
+        </section>
+        <section class="stage-sub col-9" id="stage-sub-mics">
+          <h3 class="t-19">Microphone array</h3>
+          <p class="t-17">Twelve microphones sit around the rim of both cups.<sup class="footnote"><a href="#footnote-3" aria-label="Footnote 3">3</a></sup>
+            Six of them — marked here — form the beamforming array that isolates your voice on a
+            call. The remaining six feed the QN3's cancellation loop.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     (06) Feature grid. Named features only, no numbers — the numeric claims
+     all live in the proof module and the specification sheet, where they can
+     be footnoted properly.
+     ========================================================================== -->
+<section class="chapter chapter-b rhythm-features">
+  <div class="prose">
+    <div class="col-10">
+      <p class="section-index t-14" aria-hidden="true">(06)</p>
+      <h2 class="t-56">What the processing is for.</h2>
+    </div>
+  </div>
+  <div class="media">
+    <ul class="feature-grid">
+      <li><h3 class="t-19">Adaptive NC Optimizer</h3><p class="t-17">Re-measures the seal, the shape of your head and the air pressure around you, and re-tunes cancellation continuously rather than at pairing.</p></li>
+      <li><h3 class="t-19">Scene-based Listening</h3><p class="t-17">Reads what you are listening to and shifts the spatial treatment to suit it — new on this model.</p></li>
+      <li><h3 class="t-19">360 Reality Audio</h3><p class="t-17">Object-based spatial audio on supported services, mapped to your own ear photographs.</p></li>
+      <li><h3 class="t-19">360 Upmix for Cinema</h3><p class="t-17">Lifts ordinary stereo film soundtracks into the same spatial field.</p></li>
+      <li><h3 class="t-19">DSEE Extreme</h3><p class="t-17">Restores the high-frequency detail that compression discards, in real time.</p></li>
+      <li><h3 class="t-19">Adaptive Sound Control</h3><p class="t-17">Learns the places you go and changes ambient settings when you arrive.</p></li>
+      <li><h3 class="t-19">Speak-to-Chat</h3><p class="t-17">Pauses playback and opens the microphones when you begin to speak.</p></li>
+      <li><h3 class="t-19">Multipoint and Auto Switch</h3><p class="t-17">Two devices connected at once, with the audio following whichever one is playing.</p></li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     (07) Specification sheet.
+     Archetype 6's grid mechanics — 244 / 80 / 244 with a dead centre gutter,
+     collapsing to 1fr 1fr at 480px with the gutter column deleted, never a
+     horizontal scroller. Rows are semantically classed so they align by class
+     and a missing spec leaves a gap rather than shifting the column.
+     Not a two-product comparison: no citable WH-1000XM5 figures exist for
+     battery, weight or price, and the archetype's own gate routes that case
+     to a spec list. See DESIGN.md.
+     ========================================================================== -->
+<section class="chapter chapter-a rhythm-specs" id="specs">
+  <div class="prose">
+    <div class="col-10">
+      <p class="section-index t-14" aria-hidden="true">(07)</p>
+      <h2 class="t-56">Specifications.</h2>
+    </div>
+  </div>
+
+  <div class="media spec-wrap">
+    <div class="spec-grid">
+      <div class="spec-group">
+        <h3 class="t-19 spec-group-title">Noise cancelling</h3>
+        <dl class="spec-list">
+          <div class="spec-row product-processor"><dt class="t-14">Processor</dt><dd class="t-14">HD Noise Cancelling Processor QN3</dd></div>
+          <div class="spec-row product-mics"><dt class="t-14">Microphones</dt><dd class="t-14">12 total; 6-microphone beamforming array for voice<sup class="footnote"><a href="#footnote-3" aria-label="Footnote 3">3</a></sup></dd></div>
+          <div class="spec-row product-optimizer"><dt class="t-14">Optimisation</dt><dd class="t-14">Adaptive NC Optimizer</dd></div>
+        </dl>
+      </div>
+
+      <div class="spec-gutter" aria-hidden="true"></div>
+
+      <div class="spec-group">
+        <h3 class="t-19 spec-group-title">Sound</h3>
+        <dl class="spec-list">
+          <div class="spec-row product-driver"><dt class="t-14">Driver</dt><dd class="t-14">30 mm, carbon fibre composite dome</dd></div>
+          <div class="spec-row product-response"><dt class="t-14">Frequency response</dt><dd class="t-14">4 Hz – 40,000 Hz wired; 20 Hz – 40,000 Hz over LDAC 96 kHz<sup class="footnote"><a href="#footnote-4" aria-label="Footnote 4">4</a></sup></dd></div>
+          <div class="spec-row product-processing"><dt class="t-14">Processing</dt><dd class="t-14">DSEE Extreme, 360 Reality Audio, 360 Upmix for Cinema</dd></div>
+        </dl>
+      </div>
+
+      <div class="spec-group">
+        <h3 class="t-19 spec-group-title">Battery</h3>
+        <dl class="spec-list">
+          <div class="spec-row product-battery"><dt class="t-14">Noise cancelling on</dt><dd class="t-14">Up to 30 h (AAC / SBC / LC3); up to 26 h (LDAC)<sup class="footnote"><a href="#footnote-5" aria-label="Footnote 5">5</a></sup></dd></div>
+          <div class="spec-row product-battery-off"><dt class="t-14">Noise cancelling off</dt><dd class="t-14">Up to 40 h<sup class="footnote"><a href="#footnote-5" aria-label="Footnote 5">5</a></sup></dd></div>
+          <div class="spec-row product-charge"><dt class="t-14">Quick charge</dt><dd class="t-14">3 min for approx. 3 h of playback<sup class="footnote"><a href="#footnote-6" aria-label="Footnote 6">6</a></sup></dd></div>
+          <div class="spec-row product-charge-full"><dt class="t-14">Full charge</dt><dd class="t-14">Approx. 3.5 h</dd></div>
+        </dl>
+      </div>
+
+      <div class="spec-gutter" aria-hidden="true"></div>
+
+      <div class="spec-group">
+        <h3 class="t-19 spec-group-title">Connection and body</h3>
+        <dl class="spec-list">
+          <div class="spec-row product-bluetooth"><dt class="t-14">Bluetooth</dt><dd class="t-14">Version 5.3; multipoint, 2 devices</dd></div>
+          <div class="spec-row product-codecs"><dt class="t-14">Codecs</dt><dd class="t-14">SBC, AAC, LDAC, LC3</dd></div>
+          <div class="spec-row product-weight"><dt class="t-14">Weight</dt><dd class="t-14">Approx. 254 g<sup class="footnote"><a href="#footnote-7" aria-label="Footnote 7">7</a></sup></dd></div>
+          <div class="spec-row product-folding"><dt class="t-14">Folding</dt><dd class="t-14">Metal injection moulded hinge; case with magnetic closure</dd></div>
+          <div class="spec-row product-colours"><dt class="t-14">Colours</dt><dd class="t-14">Black, Platinum Silver, Midnight Blue</dd></div>
+          <div class="spec-row product-price"><dt class="t-14">Price at launch</dt><dd class="t-14">$449.99 USD, 15 May 2025<sup class="footnote"><a href="#footnote-8" aria-label="Footnote 8">8</a></sup></dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="spec-cta">
+      <a class="cta t-19" href="#specs">Buy WH-1000XM6 <span class="cta-price">$449.99</span></a>
+      <a class="textlink t-17" href="#footnote-8">How this price is cited</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================================================
+     (08) Router closers. Deliberately quiet: no gradient, no motion, one
+     headline per tile.
+     ========================================================================== -->
+<section class="chapter chapter-end rhythm-closers">
+  <div class="media">
+    <p class="section-index t-14" aria-hidden="true">(08)</p>
+    <ul class="routers">
+      <li><a href="#specs"><span class="t-24">WF-1000XM5</span><span class="t-14 muted-invert">True wireless</span></a></li>
+      <li><a href="#specs"><span class="t-24">LinkBuds</span><span class="t-14 muted-invert">Open design</span></a></li>
+      <li><a href="#specs"><span class="t-24">Sony | Sound Connect</span><span class="t-14 muted-invert">App and equaliser</span></a></li>
+      <li><a href="#specs"><span class="t-24">Sustainability</span><span class="t-14 muted-invert">Materials and packaging</span></a></li>
+    </ul>
+
+    <ul class="values">
+      <li>
+        <svg viewBox="0 0 24 24" class="value-icon" aria-hidden="true" focusable="false"><path d="M12 3v18M5 8h14M5 16h14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <h3 class="t-19">Cited, not claimed</h3>
+        <p class="t-17">Every number on this page names its source and, where one is published, its method.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" class="value-icon" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <h3 class="t-19">Measured, not modelled</h3>
+        <p class="t-17">Battery figures are Sony's published operating times, not a projection.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" class="value-icon" aria-hidden="true" focusable="false"><path d="M4 18V9M10 18V5M16 18v-6M22 18h-20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <h3 class="t-19">Baselined, not floated</h3>
+        <p class="t-17">Each multiplier is shown against the configuration it is measured from.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ==========================================================================
+     Footnote apparatus. One disclaimer per marker, each with a matching id.
+     ========================================================================== -->
+<footer class="chapter chapter-end rhythm-footer">
+  <div class="prose">
+    <div class="col-10">
+      <div class="footer-cta">
+        <a class="cta t-19" href="#specs">Buy WH-1000XM6 <span class="cta-price">$449.99</span></a>
+      </div>
+
+      <h2 class="t-19 disclaimer-title">Footnotes</h2>
+      <div class="disclaimer">
+        <p id="footnote-1" class="t-14"><span class="fn-num">1.</span> Sony describes the WH-1000XM6
+          as offering “the best noise cancellation”. Sony states the method as ambient noise
+          reduction based on IEC-compliant guidelines, measured against the top ten brands by market
+          share. The competitor set is not named by Sony. Source: Sony US press release, 15 May 2025.</p>
+
+        <p id="footnote-2" class="t-14"><span class="fn-num">2.</span> Sony’s US press release states
+          the QN3 is “seven times faster than the previous model”. That release does not name the
+          baseline chip; Sony’s European press copy and press-briefed reporting from Engadget and
+          Notebookcheck both identify it as the QN1 used in the WH-1000XM5. The 7.0× figure is
+          Sony’s; the QN1 attribution is those secondary sources.</p>
+
+        <p id="footnote-3" class="t-14"><span class="fn-num">3.</span> Twelve microphones in total,
+          which Sony states is “1.5 times more than the WH-1000XM5” — a baseline of eight. Six form
+          the AI-based beamforming array used for voice calls. Source: Sony.</p>
+
+        <p id="footnote-4" class="t-14"><span class="fn-num">4.</span> 4 Hz – 40,000 Hz measured
+          wired to IEC method. 20 Hz – 40,000 Hz over Bluetooth using LDAC at 96 kHz / 990 kbps.
+          Source: Sony specification.</p>
+
+        <p id="footnote-5" class="t-14"><span class="fn-num">5.</span> Sony’s published operating
+          times: up to 30 hours with noise cancelling on using AAC, SBC or LC3; up to 26 hours using
+          LDAC; up to 40 hours with noise cancelling off. Actual time varies with volume, content and
+          ambient temperature. Source: Sony Help Guide.</p>
+
+        <p id="footnote-6" class="t-14"><span class="fn-num">6.</span> Three minutes of charging
+          returns approximately three hours of playback using a commercially available USB PD
+          adaptor at 9 V / 2.3 A. The same three minutes returns approximately one hour using a
+          standard 5 V / 1.5 A supply, which is the baseline the 3.0× figure is measured from. Sony
+          states the test conditions as DSEE Extreme and EQ off, AAC codec. Source: Sony Help Guide.</p>
+
+        <p id="footnote-7" class="t-14"><span class="fn-num">7.</span> Approximately 254 g. Source:
+          Sony Help Guide specification.</p>
+
+        <p id="footnote-8" class="t-14"><span class="fn-num">8.</span> $449.99 USD at launch,
+          announced 15 May 2025. Source: Sony US press release. At least one review outlet lists a
+          $459.99 MSRP; the launch figure is used here because it is the one Sony published.</p>
+
+        <p class="t-14 not-affiliated"><strong>This page is an independent design exercise.</strong>
+          It is not affiliated with, endorsed by, or produced for Sony Group Corporation. Product
+          names and specifications belong to Sony and are reproduced here, with sources, for the
+          purpose of demonstrating a page design. The product illustrations are hand-drawn vector
+          diagrams, not Sony imagery.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<noscript>
+  <style>
+    .hero-layer { transform: none !important; }
+    #hero-annotations { display: none; }
+    .stage-runway { height: auto; }
+    .stage { position: static; height: auto; }
+    .bar-mask { width: 100% !important; }
+    .panel[hidden] { display: block !important; }
+  </style>
+</noscript>
+
+<script src="js/scrub.js"></script>
+<script src="js/field.js"></script>
+<script src="js/scenes.js"></script>
+</body>
+</html>

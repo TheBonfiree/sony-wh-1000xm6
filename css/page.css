@@ -1,0 +1,475 @@
+/* ==========================================================================
+   page.css — sections, rhythm, components.
+   Vertical rhythm is hand-set and asymmetric. There is no spacer token here,
+   deliberately: the irregularity is what makes the page read as art-directed
+   rather than derived from a scale.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--c-chapter-b);
+  color: var(--c-font);
+  font-family: var(--font-text);
+  font-size: var(--fs-17);
+  line-height: 1.47;
+  -webkit-font-smoothing: antialiased;
+  /* Full-bleed devices are sized to 100% of a clipping parent, never 100vw,
+     but this is the belt to that pair of braces. */
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; }
+img, svg { max-width: 100%; }
+
+.skip-link {
+  position: absolute; left: 12px; top: -100px; z-index: 10000;
+  background: var(--c-tile-dark); color: var(--c-font-invert);
+  padding: 12px 20px; border-radius: 8px; text-decoration: none;
+  transition: top 120ms ease;
+}
+.skip-link:focus-visible { top: 12px; }
+
+:focus-visible {
+  outline: 2px solid var(--c-link);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* --- Chapter ladder. Chapters never hard-flip. -------------------------- */
+.chapter-a   { background: var(--c-chapter-a); }
+.chapter-b   { background: var(--c-chapter-b); }
+.chapter-end { background: var(--c-chapter-end); }
+
+.muted        { color: #6e6e73; }   /* small muted text — AA on the ladder */
+.muted-large  { color: var(--c-font-muted); }  /* 24px and up only */
+.muted-invert { color: var(--c-font-invert-muted); }
+
+.lede { color: #4a4a4f; margin-top: 28px; max-width: 30ch; }
+
+/* Numerals are structure: sections are numbered. This is what impeccable's
+   `numbered-section-labels` rule fires on, and why it is waived. */
+.section-index {
+  color: #6e6e73;   /* 14px: below the size where --c-font-muted clears AA */
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Hand-set section rhythm ------------------------------------------- */
+.rhythm-hero      { padding: 45px 0 80px; }
+.rhythm-statement { padding: 195px 0 200px; }
+.rhythm-touts     { padding: 135px 0 137px; }
+.rhythm-proof     { padding: 140px 0 148px; }
+.rhythm-stage     { padding: 90px 0 97px; }
+.rhythm-features  { padding: 150px 0 160px; }
+.rhythm-specs     { padding: 230px 0 250.5px; }
+.rhythm-closers   { padding: 160px 0 160px; }
+.rhythm-footer    { padding: 96px 0 120px; }
+
+/* Mobile rhythm is re-authored, not scaled. */
+@media (max-width: 640px) {
+  .rhythm-hero      { padding: 24px 0 56px; }
+  .rhythm-statement { padding: 104px 0 112px; }
+  .rhythm-touts     { padding: 80px 0 88px; }
+  .rhythm-proof     { padding: 88px 0 96px; }
+  .rhythm-stage     { padding: 75px 0 353px; }  /* the scene needs runway here */
+  .rhythm-features  { padding: 96px 0 104px; }
+  .rhythm-specs     { padding: 120px 0 132px; }
+  .rhythm-closers   { padding: 96px 0 96px; }
+  .rhythm-footer    { padding: 64px 0 88px; }
+}
+
+/* ==========================================================================
+   Sticky local nav — 52px, above everything.
+   ========================================================================== */
+.localnav {
+  position: sticky; top: 0; z-index: 9997;
+  height: var(--nav-height);
+  background: rgba(250, 250, 250, 0.82);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--c-rule);
+}
+.localnav-inner {
+  height: 100%;
+  width: 100%; max-width: var(--media-max);
+  margin-inline: auto; padding-inline: var(--gutter);
+  display: flex; align-items: center; gap: 28px;
+}
+.localnav-product { white-space: nowrap; }
+.localnav-links { display: flex; gap: 24px; margin-left: auto; }
+.localnav-links a { color: #4a4a4f; text-decoration: none; white-space: nowrap; }
+.localnav-links a:hover { color: var(--c-font); }
+@media (max-width: 860px) { .localnav-links { display: none; } }
+@media (max-width: 860px) { .localnav-inner .cta { margin-left: auto; } }
+
+/* ==========================================================================
+   The one conversion goal. No gradient on it — the accent rule holds.
+   ========================================================================== */
+.cta {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  background: var(--c-tile-dark); color: var(--c-font-invert);
+  text-decoration: none; border-radius: 980px;
+  padding: 14px 26px; white-space: nowrap;
+}
+.cta:hover { background: #2a2a2e; }
+.cta-sm { padding: 8px 18px; }
+.cta-price { color: var(--c-font-invert-muted); font-weight: 400; }
+.textlink { color: var(--c-link); text-decoration: none; }
+.textlink:hover { text-decoration: underline; }
+
+/* ==========================================================================
+   (01) Hero
+   ========================================================================== */
+.hero-eyebrow { color: #4a4a4f; font-weight: 400; margin-bottom: 8px; }
+.hero-claim { max-width: 16ch; }
+/* `overflow: clip` is load-bearing: the field bleeds past this box on purpose
+   and the hero-stage is already full-bleed at mobile, so without a clipping
+   parent the bleed becomes 16px of horizontal page scroll. */
+.hero-stage { margin-top: 56px; position: relative; overflow: clip; }
+
+/* ---- The ground -------------------------------------------------------
+   A static reading of the same ramp, showing from first paint. If field.js
+   gets a WebGL context it stamps data-field="live" and the wash steps aside
+   for the shader; if it does not — no WebGL, reduced motion, JS off — this
+   is the finished hero ground, not a placeholder for a missing one. */
+.field-wrap {
+  position: absolute; inset: -6% -4% 4%;
+  z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(58% 46% at 22% 34%, rgba(217, 138,  90, 0.16), transparent 70%),
+    radial-gradient(52% 44% at 74% 62%, rgba(143, 107, 216, 0.15), transparent 72%),
+    radial-gradient(46% 38% at 52% 22%, rgba(110, 140, 255, 0.11), transparent 74%);
+  filter: blur(6px);
+}
+.field-wrap[data-field="live"] { background: none; filter: none; }
+.field-canvas { display: block; width: 100%; height: 100%; }
+
+/* The product sits on the ground, not in it. */
+.hero-svg { position: relative; z-index: 1; }
+/* Capped in viewport units so the claim and the product are legible in one
+   view. Left uncapped, the 1200x760 box renders 870px tall at 1440 and pushes
+   the claim off-screen before the scene has started. */
+.hero-svg { display: block; width: 100%; height: auto; max-height: 56vh; }
+.svg-note {
+  fill: #6e6e73;
+  font-family: var(--font-text);
+  /* In viewBox units. The hero renders at roughly 0.66 scale, so 22 lands
+     near 14px on screen — the small text cut, as the scale intends. */
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  text-anchor: middle;
+}
+.hero-foot { margin-top: 40px; }
+.hero-layer { will-change: transform; }
+
+/* ==========================================================================
+   (02) Chapter headline. The page's single loud type moment.
+   ========================================================================== */
+.statement { max-width: 14ch; }
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .statement {
+    background-image: var(--g-hero);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  /* The footnote marker inherits colour, so it must opt out of the clip or it
+     disappears into the fill. */
+  .statement .footnote { -webkit-text-fill-color: var(--c-font); }
+}
+
+/* ==========================================================================
+   (03) Component touts — dark tiles floating on the near-white ground.
+   ========================================================================== */
+.touts {
+  margin-top: 72px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  align-items: start;
+}
+.tout {
+  position: relative;
+  background: var(--c-tile-dark);
+  color: var(--c-font-invert);
+  border-radius: 28px;
+  padding: 56px 48px 52px;
+}
+.tout-a { position: sticky; top: calc(var(--nav-height) + 24px); }
+/* Bottom-anchored sticky: the second tile rises over the first as the reader
+   scrolls, without either leaving the flow. */
+.tout-b { position: sticky; top: auto; bottom: 24px; z-index: 1; margin-top: 120px; }
+
+.tout-kicker { color: var(--c-font-invert-muted); letter-spacing: 0.06em;
+               text-transform: uppercase; margin-bottom: 22px; }
+.tout h3 { margin-bottom: 34px; }
+.tout-list { display: grid; gap: 14px; margin-bottom: 34px; }
+.tout-list li {
+  color: var(--c-font-invert);
+}
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .tout-list li {
+    background-image: var(--g-proof);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .tout-list .footnote { -webkit-text-fill-color: var(--c-font-invert); }
+}
+.tout-note { color: var(--c-font-invert-muted); max-width: 42ch; }
+
+/* Faux corner notch — a concave corner where the tile meets the ground.
+   The 30px -> 31px hard stop is a deliberate 1px antialias band. */
+.corner { position: absolute; width: 31px; height: 31px; pointer-events: none; }
+.corner-tl { top: -31px; left: 0;
+  background-image: radial-gradient(circle at 0% 0%, rgba(255,255,255,0) 30px, var(--c-chapter-b) 31px); }
+.corner-tr { top: -31px; right: 0;
+  background-image: radial-gradient(circle at 100% 0%, rgba(255,255,255,0) 30px, var(--c-chapter-b) 31px); }
+
+@media (max-width: 860px) {
+  .touts { grid-template-columns: 1fr; gap: 20px; }
+  .tout-a, .tout-b { position: static; margin-top: 0; }
+  .tout { padding: 40px 28px 36px; border-radius: 22px; }
+  .corner { display: none; }
+}
+
+/* ==========================================================================
+   (04) Proof module. The register's centrepiece.
+   ========================================================================== */
+.proof { margin-top: 72px; }
+
+.tablist { display: flex; flex-wrap: wrap; align-items: baseline; gap: 14px;
+           padding-bottom: 40px; border-bottom: 1px solid var(--c-rule); }
+/* Unselected tabs recede but stay AA: the step clamps to 22px on a 390px
+   viewport, under the large-text threshold --c-font-muted relies on. */
+.tablist a { text-decoration: none; color: #6e6e73; }
+.tablist a:hover { color: var(--c-font); }
+.tablist a[aria-selected="true"] { color: var(--c-font); }
+.tabsep { color: var(--c-rule); }
+
+.bars-container { padding-top: 12px; }
+.bar-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) max-content;
+  gap: 0 56px; align-items: end;
+  padding: 34px 0 30px;
+  border-bottom: 1px solid var(--c-rule);
+}
+/* The baseline row recedes, but not by fading the whole row — a blanket
+   opacity drags its caption and figure below AA. Only the bar, which is
+   decorative and aria-hidden, loses weight; the text recedes by colour. */
+.bar-row.is-baseline .bar { opacity: 0.5; }
+.bar-row.is-baseline .bar-caption,
+.bar-row.is-baseline .badge-value,
+.bar-row.is-baseline .badge-unit { color: #6e6e73; }
+.bar-content-container { display: flex; flex-direction: column-reverse; gap: 16px; min-width: 0; }
+
+/* The datum lives in data-bar-width on the mask, not in an inline style, so
+   the page stays queryable and the multiplier-to-width mapping lives in one
+   place. The mask width and the inner track width are written by scenes.js. */
+.bar-mask { width: 0; overflow: hidden; border-radius: 5px; }
+.bar {
+  height: 10px; border: 0; margin: 0; border-radius: 5px;
+  background-color: transparent;
+  background-image: var(--g-proof);
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.bar-caption { color: #4a4a4f; }
+
+.badge { text-align: right; }
+.badge-value-container { white-space: nowrap; }
+.badge-value, .badge-unit {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 32;
+  font-size: var(--fs-48);
+  font-weight: 600;
+  letter-spacing: -0.003em;
+  font-variant-numeric: tabular-nums;
+}
+.badge-unit { color: var(--c-font-muted); }
+.badge-caption { display: block; color: #6e6e73; margin-top: 4px; }
+
+@media (max-width: 640px) {
+  .bar-row { grid-template-columns: 1fr; gap: 20px; align-items: start; }
+  .badge { text-align: left; }
+}
+
+/* ==========================================================================
+   (05) Sticky spec stage
+   ========================================================================== */
+.stage-runway { height: 240vh; margin-top: 56px; }
+.stage {
+  position: sticky; top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
+  display: grid; grid-template-columns: 1.05fr 0.95fr;
+  align-items: center; gap: 40px;
+  width: 100%; max-width: var(--media-max);
+  margin-inline: auto; padding-inline: var(--gutter);
+  overflow: hidden;
+}
+/* The viewBox is cropped to the earcup (320 40 560 720) rather than to a wide
+   frame, so the stage is height-driven: the object fills the pinned viewport
+   instead of floating in it. */
+.stage-canvas { height: 100%; display: grid; place-items: center; min-width: 0; }
+.stage-svg { height: 100%; max-height: 80%; width: auto; max-width: 100%; }
+#stage-camera { transform-origin: 600px 400px; will-change: transform; }
+.stage-copy { position: relative; }
+.stage-sub {
+  position: absolute; inset-inline: 0; top: 50%; transform: translateY(-50%);
+  display: grid; gap: 14px;
+}
+.stage-sub h3 { color: var(--c-font); }
+.stage-sub p { color: #4a4a4f; }
+.mic { fill: #45454c; stroke: #5c5c66; stroke-width: 1.5; }
+/* The six beamforming ports are the ones the copy points at, so they carry the
+   ramp's first stop — the same colour family as the driver, not a new accent. */
+.mic-beam { fill: #f6d9bd; stroke: #f6d9bd; stroke-opacity: 0.35; stroke-width: 6; }
+
+@media (max-width: 860px) {
+  .stage { grid-template-columns: 1fr; align-content: center; gap: 24px; }
+  .stage-svg { height: auto; width: auto; max-height: 40vh; }
+  .stage-copy { min-height: 210px; }
+}
+
+/* ==========================================================================
+   (06) Feature grid
+   ========================================================================== */
+.feature-grid {
+  margin-top: 64px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 48px 32px;
+}
+.feature-grid li { border-top: 1px solid var(--c-rule); padding-top: 20px; }
+.feature-grid h3 { margin-bottom: 10px; }
+.feature-grid p { color: #4a4a4f; }
+@media (max-width: 1100px) { .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px)  { .feature-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+/* ==========================================================================
+   (07) Specification sheet.
+   Archetype 6's grid mechanics: 244 / 80 / 244 with a dead centre gutter
+   column, deleted rather than scrolled at the small end.
+   ========================================================================== */
+.spec-wrap { margin-top: 64px; }
+/* minmax(0, 1fr) rather than minmax(244px, 1fr): the archetype's 244/80/244 is
+   a 568px minimum, which overflows any viewport under about 620px. The three
+   tracks hold their intent at desktop and the grid stays overflow-proof. */
+.spec-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 80px minmax(0, 1fr);
+  gap: 72px 0;
+}
+.spec-gutter { width: 80px; }
+.spec-group-title {
+  padding-bottom: 16px; margin-bottom: 8px;
+  border-bottom: 1px solid var(--c-rule);
+}
+.spec-row {
+  display: grid; grid-template-columns: 40% 1fr; gap: 16px;
+  padding: 14px 0; border-bottom: 1px solid var(--c-rule);
+}
+.spec-row dt { color: #6e6e73; }
+.spec-row dd { color: var(--c-font); margin: 0; }
+
+.spec-cta { margin-top: 72px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+
+/* The gutter column is deleted, never turned into a scroller. It goes at the
+   width where three tracks stop being readable, not at a nominal 480. */
+@media (max-width: 820px) {
+  .spec-grid { grid-template-columns: 1fr 1fr; gap: 56px 24px; }
+  .spec-gutter { display: none; }
+}
+@media (max-width: 560px) {
+  .spec-grid { grid-template-columns: 1fr; gap: 44px 0; }
+  .spec-row { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* ==========================================================================
+   (08) Router closers. Quiet by design: no gradient, no motion.
+   ========================================================================== */
+.routers { margin-top: 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+/* Headline top, label bottom — the tile is a fixed height, so the two ends
+   should hold it rather than both crowding the top edge. */
+.routers a {
+  display: flex; flex-direction: column; justify-content: space-between; gap: 10px;
+  background: var(--c-tile-black); color: var(--c-font-invert);
+  border-radius: 20px; padding: 36px 32px 32px; min-height: 190px;
+  text-decoration: none;
+}
+.routers a:hover { background: #141418; }
+
+.values { margin-top: 96px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.values li { display: grid; gap: 12px; justify-items: start; }
+.value-icon { width: 28px; height: 28px; color: var(--c-font); }
+.values p { color: #4a4a4f; max-width: 34ch; }
+
+@media (max-width: 900px) {
+  .routers { grid-template-columns: repeat(2, 1fr); }
+  .values  { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 520px) { .routers { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   Footnote apparatus.
+   No vertical-align: super, no size reduction. The marker matches its parent's
+   size flat; the raised look comes from the face's superior figures. Markers
+   inherit colour so they survive unchanged on the dark tiles.
+   ========================================================================== */
+/* The archetype's rule is a flat marker at the parent's size, raised only by
+   the face's own superior figures. That rule is premised on the face shipping
+   them. Inter's web build does not, and Chrome does not synthesise from
+   `font-variant-position` either — measured, not assumed: the marker came back
+   14px inside a 14px parent, offset 1px. A flat digit welds itself to the
+   preceding word, so "QN1" plus marker 2 reads as "QN12". With the premise
+   gone the rule produces a legibility bug, so the marker is raised and reduced
+   the conventional way. Everything else from the archetype is kept: colour is
+   inherited, so markers survive unchanged on the dark tiles. See DESIGN.md. */
+.footnote {
+  font-size: 0.62em;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 0.18em;
+  font-variant-numeric: lining-nums;
+}
+.footnote a { text-decoration: none; color: inherit; }
+.footnote a:hover { text-decoration: underline; }
+
+.footer-cta { margin-bottom: 96px; }
+.disclaimer-title { color: var(--c-font); margin-bottom: 20px;
+                    padding-bottom: 16px; border-top: 1px solid var(--c-rule); padding-top: 28px; }
+.disclaimer { display: grid; gap: 14px; max-width: 74ch; }
+.disclaimer p { color: #6e6e73; }
+.disclaimer .fn-num { color: var(--c-font); font-variant-numeric: tabular-nums; }
+.not-affiliated { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--c-rule); }
+.not-affiliated strong { color: var(--c-font); }
+
+/* ==========================================================================
+   Reduced motion. The JS branches on matchMedia for everything it drives; this
+   block handles what is CSS-owned. Unpinning the stage without also removing
+   its runway would leave a viewport-tall hole, so both change together.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .stage-runway { height: auto; }
+  .stage {
+    position: static; height: auto;
+    padding-block: 48px;
+    grid-template-columns: 1fr;
+  }
+  .stage-svg { max-height: none; }
+  .stage-copy { display: grid; gap: 40px; margin-top: 40px; }
+  .stage-sub { position: static; transform: none; opacity: 1 !important; }
+  .tout-a, .tout-b { position: static; }
+  .tout-b { margin-top: 24px; }
+  .cta, .skip-link, .localnav-links a { transition: none; }
+}
+
+/* Print: the scenes are meaningless on paper; the specification sheet is not. */
+@media print {
+  .localnav, .hero-stage, .stage-runway, .routers, .cta { display: none; }
+  body { background: #fff; }
+}

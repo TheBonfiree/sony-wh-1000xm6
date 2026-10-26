@@ -1,0 +1,169 @@
+/* ==========================================================================
+   tokens.css — PRECISION register
+   Palette, optical-size pair, thirteen-step type scale, the two grids.
+   Every decision here is recorded in DESIGN.md. Change both together.
+   ========================================================================== */
+
+:root {
+  /* --- Chapter ladder. Chapters never hard-flip. ------------------------- */
+  --c-chapter-a:   #fafafa;
+  --c-chapter-b:   #ffffff;
+  --c-chapter-end: #f5f5f7;
+
+  /* --- Contrast lives on tiles, not on sections. ------------------------- */
+  --c-tile-dark:  #111111;
+  --c-tile-black: #000000;
+
+  /* --- One text token, used everywhere. ---------------------------------- */
+  --c-font:       #1d1d1f;
+  --c-font-muted: #86868b;
+  --c-rule:       #d2d2d7;
+  --c-link:       #0066cc;
+
+  /* --- On dark tiles. ---------------------------------------------------- */
+  --c-font-invert:       #f5f5f7;
+  --c-font-invert-muted: #a1a1a6;
+  --c-rule-invert:       #38383c;
+
+  /* --- The one ramp. There is no flat accent on this page. ---------------
+     Drawn off the product's colourways: Platinum Silver -> copper -> Midnight Blue.
+     Three sanctioned homes: proof bars, tout callout type, the 96px headline.
+     (Plus the hero driver diaphragm — see DESIGN.md.)
+     Every stop clears 4.5:1 against the #111 tile, because the ramp fills type
+     there as well as bars. The blue end is #6e8cff rather than a deeper blue
+     for exactly that reason.                                                */
+  --g-proof: linear-gradient(90deg, #f6d9bd 0%, #d98a5a 30%, #8f6bd8 62%, #6e8cff 100%);
+
+  /* The wider ramp, used once, on the single 96px headline. Six stops at even
+     13.3% intervals, stopping at 76.5% so the final colour never fully lands.
+     Values are the dark-ground reading of that ramp: the headline sits on the
+     near-white chapter, so the light original would have been invisible.     */
+  --g-hero:  linear-gradient(90deg, #7a4a2a 10%, #b05f3f 23.3%, #c04a6a 36.6%,
+                                    #6a3fd0 49.9%, #2f5ad6 63.2%, #1f7fa8 76.5%);
+
+  /* --- The optical-size pair. The threshold IS the hierarchy. ------------
+     One family, two real cuts. Bricolage Grotesque carries a true `opsz` axis
+     (10–48) drawn by the designer, not synthesised — which is the whole hard
+     rule. One family is loaded once and an explicit `font-variation-settings`
+     picks the cut at either end of the threshold.
+
+     Inter was the obvious pick and was rejected: it has the axis, but it is on
+     impeccable's overused-font list for good reason, and a page whose entire
+     argument is "this is the specific thing, measured" should not be set in
+     the default face of every AI-generated marketing site.                  */
+  --font-display: 'Bricolage Grotesque', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-text:    'Bricolage Grotesque', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* --- Type scale. Desktop end = the reference table. Mobile end = 390px. -
+     size = M + (D − M) × (100vw − 390px) / 1050                             */
+  --fs-96: clamp(40px, calc(40px + 56 * (100vw - 390px) / 1050), 96px);
+  --fs-80: clamp(40px, calc(40px + 40 * (100vw - 390px) / 1050), 80px);
+  --fs-64: clamp(34px, calc(34px + 30 * (100vw - 390px) / 1050), 64px);
+  --fs-56: clamp(30px, calc(30px + 26 * (100vw - 390px) / 1050), 56px);
+  --fs-48: clamp(28px, calc(28px + 20 * (100vw - 390px) / 1050), 48px);
+  --fs-40: clamp(24px, calc(24px + 16 * (100vw - 390px) / 1050), 40px);
+  --fs-32: clamp(22px, calc(22px + 10 * (100vw - 390px) / 1050), 32px);
+  --fs-28: clamp(19px, calc(19px +  9 * (100vw - 390px) / 1050), 28px);
+  --fs-24: clamp(18px, calc(18px +  6 * (100vw - 390px) / 1050), 24px);
+  --fs-21: clamp(17px, calc(17px +  4 * (100vw - 390px) / 1050), 21px);
+  --fs-19: clamp(17px, calc(17px +  2 * (100vw - 390px) / 1050), 19px);
+  --fs-17: clamp(16px, calc(16px +  1 * (100vw - 390px) / 1050), 17px);
+  --fs-14: clamp(13px, calc(13px +  1 * (100vw - 390px) / 1050), 14px);
+
+  /* --- Layout. --------------------------------------------------------- */
+  --prose-max:  980px;
+  --media-max:  1425px;   /* 1377px of content inside 24px padding */
+  --gutter:     24px;
+  --nav-height: 52px;
+}
+
+/* ==========================================================================
+   The optical cut. Above 19px the display cut, at and below 17px the text cut.
+   `opsz` is set explicitly rather than left to `auto` so the cut is a decision
+   rather than a browser heuristic — and so it survives a font that reports the
+   axis but does not apply it automatically.
+   ========================================================================== */
+
+.cut-display,
+h1, h2, h3, h4,
+.t-96, .t-80, .t-64, .t-56, .t-48, .t-40, .t-32, .t-28, .t-24, .t-21, .t-19 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-variation-settings: 'opsz' 48, 'wdth' 100;
+}
+
+.cut-text,
+.t-17, .t-14 {
+  font-family: var(--font-text);
+  font-optical-sizing: auto;
+  font-variation-settings: 'opsz' 11, 'wdth' 100;
+}
+
+/* --------------------------------------------------------------------------
+   The thirteen steps. Tracking changes sign twice: negative at display,
+   crossing positive between 32px and 40px, positive through mid-size UI type,
+   negative again in the small text cut. Line-height compresses as size rises.
+   -------------------------------------------------------------------------- */
+
+.t-96 { font-size: var(--fs-96); font-weight: 700; line-height: 1.042; letter-spacing: -0.015em; }
+.t-80 { font-size: var(--fs-80); font-weight: 700; line-height: 1.05;  letter-spacing: -0.015em; }
+.t-64 { font-size: var(--fs-64); font-weight: 700; line-height: 1.063; letter-spacing: -0.009em; }
+.t-56 { font-size: var(--fs-56); font-weight: 600; line-height: 1.071; letter-spacing: -0.005em; }
+.t-48 { font-size: var(--fs-48); font-weight: 600; line-height: 1.083; letter-spacing: -0.003em; }
+.t-40 { font-size: var(--fs-40); font-weight: 600; line-height: 1.20;  letter-spacing: normal;   }
+.t-32 { font-size: var(--fs-32); font-weight: 600; line-height: 1.125; letter-spacing:  0.004em; }
+.t-28 { font-size: var(--fs-28); font-weight: 600; line-height: 1.143; letter-spacing:  0.007em; }
+.t-24 { font-size: var(--fs-24); font-weight: 400; line-height: 1.167; letter-spacing:  0.009em; }
+.t-21 { font-size: var(--fs-21); font-weight: 400; line-height: 1.381; letter-spacing:  0.011em; }
+.t-19 { font-size: var(--fs-19); font-weight: 600; line-height: 1.211; letter-spacing:  0.012em; }
+.t-17 { font-size: var(--fs-17); font-weight: 400; line-height: 1.47;  letter-spacing: -0.022em; }
+.t-14 { font-size: var(--fs-14); font-weight: 400; line-height: 1.43;  letter-spacing: -0.016em; }
+
+/* Mobile drops the hero claim's tracking to normal — tight tracking at 40px on
+   a 390px viewport closes the counters. */
+@media (max-width: 640px) {
+  .t-80 { letter-spacing: normal; }
+  .t-96 { letter-spacing: -0.008em; }
+}
+
+/* ==========================================================================
+   The two grids. Both exist on the same page, deliberately.
+   ========================================================================== */
+
+/* Prose: never wider than 980px. Carries every headline and paragraph. */
+.prose {
+  width: min(var(--prose-max), 100% - (2 * var(--gutter)));
+  margin-inline: auto;
+}
+
+/* 10 of 12, offset 1 -> 817px at 980. */
+.prose > .col-10 { width: 83.333%; margin-left: 8.333%; }
+/* 9 of 12 -> 735px at 980. For denser passages. */
+.prose > .col-9  { width: 75%;     margin-left: 8.333%; }
+
+/* Media: full-bleed, 1377px of content. Imagery is never boxed. */
+.media {
+  width: 100%;
+  max-width: var(--media-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Mobile: the gutter migrates onto the children, and media bleeds fully. */
+@media (max-width: 480px) {
+  .prose { width: 100%; padding: 0; margin-left: 0; }
+  .prose > .col-10,
+  .prose > .col-9 { width: calc(100% - 48px); margin-left: 24px; }
+  .media { padding-inline: 0; }
+  /* The bleed is for imagery. Text inside a media wrapper keeps its gutter —
+     copy flush to the viewport edge is the thing that stops the full-bleed
+     device reading as deliberate. */
+  .media > .proof,
+  .media.proof,
+  .media.spec-wrap,
+  .media > .feature-grid,
+  .media > .routers,
+  .media > .values,
+  .media > .section-index,
+  .media.touts { padding-inline: 24px; }
+}
